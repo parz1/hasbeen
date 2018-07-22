@@ -6,24 +6,7 @@
       <ul>
         <!--this inspection reports XML/HTML tags with missing mandatory attrbutes ,you can specify attrbute name that should not  be reported-->
         <!--home被点击后，一直处于激活状态，因此需要使用精确匹配模式，在router-link中添加exact属性-->
-        <router-link :to="{name:'Main'}" tag="li" exact>
-          <div>
-            <i class="iconmain"></i>
-          </div>
-          <div>首页</div>
-        </router-link>
-        <router-link :to="{name:'Find'}" tag="li">
-          <div>
-            <i class="iconfind"></i>
-          </div>
-          <div>发现</div>
-        </router-link>
-        <router-link :to="{name:'User'}" tag="li">
-          <div>
-            <i class="iconuser"></i>
-          </div>
-          <div>我</div>
-        </router-link>
+        <router-link :key="com.key" v-for="com in components" :to="{name:com.url}" tag="li">{{com.name}}</router-link>
       </ul>
     </div>
   </div>
@@ -31,7 +14,16 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  data(){
+    return{
+      components:[
+        {"name":"首页","url":"Main","key":1},
+        {"name":"发现","url":"Find","key":2},
+        {"name":"我","url":"User","key":3}
+      ]
+    }
+  }
 }
 </script>
 
