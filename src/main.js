@@ -4,7 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import AMap from 'vue-amap'
-Vue.use(AMap)
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(AMap);
+Vue.use(ElementUI);
 AMap.initAMapApiLoader({
   key: '92ab9ceab4a4cb58eb1fc13b7ce584f8',
   plugin:['AMap.Autocomplete', 'AMap.PlaceSearch', 'AMap.Scale', 'AMap.OverView', 'AMap.ToolBar', 'AMap.MapType', 'AMap.PolyEditor', 'AMap.CircleEditor']
